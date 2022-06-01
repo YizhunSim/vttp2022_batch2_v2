@@ -1,0 +1,4 @@
+**/classes/**
+classes/**
+*.class
+.DS_Store/**
