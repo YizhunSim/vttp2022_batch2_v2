@@ -1,4 +1,4 @@
-package vttp2022.day02;
+package day02.day02.exercises;
 
 import java.io.Console;
 

@@ -1,4 +1,4 @@
-package vttp2022.day02;
+package day02.day02.exercises;
 
 public class Array {
   public static void main (String[] args){
