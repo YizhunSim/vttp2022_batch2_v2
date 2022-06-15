@@ -1,0 +1,17 @@
+.menu > li {
+  margin-top: 5px;
+  display: inline;
+  font-size: 2em;
+}
+
+.menuitem {
+  margin-right: 10px;
+  margin-bottom: 0px black solid;
+  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.menuitem:hover {
+  background-color: cadetblue;
+}
