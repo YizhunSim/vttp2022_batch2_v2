@@ -12,7 +12,6 @@ public class App
     {
         FileParser fp = new FileParser(args[0]);
         Session ss = new Session(fp);
-        // ss.printFileContents();
         ss.start();
     }
 }

@@ -1,6 +1,5 @@
 package vttp2022.fileparser;
 
-import java.io.Console;
 import java.util.List;
 
 public class Session {
@@ -32,7 +31,7 @@ public class Session {
       String command = terms[0];
       switch (command){
         case GRID:
-          System.out.println("This is a line that has GRID: "+ line);
+          // System.out.println("This is a line that has GRID: "+ line);
           int t1 = Integer.parseInt(terms[1]);
           int t2 = Integer.parseInt(terms[2]);
           dimensionArray = this.fp.parse(t1, t2);
@@ -40,11 +39,11 @@ public class Session {
           showDimensionArray(dimensionArray);
           break;
         case START:
-          System.out.println("This is a line that has START: "+ line);
+          // System.out.println("This is a line that has START: "+ line);
           startPositionRow = Integer.parseInt(terms[1]);
           startPositionCol = Integer.parseInt(terms[2]);
-          System.out.println("d1: Start positon is "+ startPositionRow);
-          System.out.println("d2: Start position is " + startPositionCol);
+          // System.out.println("d1: Start positon is "+ startPositionRow);
+          // System.out.println("d2: Start position is " + startPositionCol);
           break;
         case DATA:
           // Populate the 2 dimension array
@@ -71,8 +70,8 @@ public class Session {
       }
       row += 1;
       col = originalCol;
-      System.out.println("ROW: "+ row);
-      System.out.println("COL: " + col);
+      // System.out.println("ROW: "+ row);
+      // System.out.println("COL: " + col);
     }
   }
 
