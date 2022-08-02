@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <h1>
+      Weather for <span data-th-text="${city}"></span>
+      <img
+        data-th-src="@{https://www.countryflagsapi.com/png/{countrycode}(countrycode=${countryCode})}"
+        alt=""
+      />
+    </h1>
+
+    <div data-th-each="w: ${weatherData}">
+      <table>
+        <tr>
+          <td style="width: 50%">
+            <img
+              data-th-src="@{http://openweathermap.org/img/wn/{iconnn}@2x.png(iconnn=${w.icon})}"
+              alt=""
+            />
+          </td>
+          <td>
+            <strong data-th-text="${w.main}"></strong>
+            <strong data-th-text="${w.description}"></strong>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
