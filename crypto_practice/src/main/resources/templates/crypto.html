@@ -23,6 +23,12 @@
         display: flex;
         justify-content: space-around;
       }
+      table, td, th {
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
     </style>
   </head>
   <body>
@@ -115,18 +121,18 @@
     </div>
 
           <div>
-          <div data-th-each="nf: ${newsFeedData}">
-            <table style="border: 1px solid;">
+            <table >
               <tr>
                 <th>Rank</th>
                 <th>ImageUrl</th>
                 <th>Title</th>
-                <th colspan="2">Url</th>
+                <th >Url</th>
                 <th>Source</th>
-                <th colspan="2">Body</th>
-                <th colspan="1">Tags</th>
-                <th colspan="1">Categories</th>
+                <th >Body</th>
+                <th >Tags</th>
+                <th >Categories</th>
               </tr>
+              <tr data-th-each="nf: ${newsFeedData}">
                 <td data-th-text="${nf.rank}">
                 </td>
                 <td>
