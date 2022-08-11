@@ -41,36 +41,36 @@
         </form>
 
           <div data-th-each="c: ${currenciesData}">
-          <table>
-            <tr>
-              <td>Rank</td>
-              <td>Asset</td>
-              <td>Price</td>
-              <td>Market Cap</td>
-              <td>Volume</td>
-              <td>Open Day</td>
-              <td>High Day</td>
-              <td>Low Day</td>
-            </tr>
-              <td data-th-text="${c.rank}">
-              </td>
-              <td data-th-text="${c.getAsset()}" >
-              </td>
-              <td data-th-text="${c.price}">
-              </td>
-              <td data-th-text="${c.marketCap}">
-              </td>
-              <td data-th-text="${c.volume}">
-              </td>
-              <td data-th-text="${c.openDay}">
-              </td>
-              <td data-th-text="${c.highDay}">
-              </td>
-              <td data-th-text="${c.lowDay}">
-              </td>
-            </tr>
-          </table>
-        </div>
+            <table>
+              <tr>
+                <td>Rank</td>
+                <td>Asset</td>
+                <td>Price</td>
+                <td>Market Cap</td>
+                <td>Volume</td>
+                <td>Open Day</td>
+                <td>High Day</td>
+                <td>Low Day</td>
+              </tr>
+                <td data-th-text="${c.rank}">
+                </td>
+                <td data-th-text="${c.getAsset()}" >
+                </td>
+                <td data-th-text="${c.price}">
+                </td>
+                <td data-th-text="${c.marketCap}">
+                </td>
+                <td data-th-text="${c.volume}">
+                </td>
+                <td data-th-text="${c.openDay}">
+                </td>
+                <td data-th-text="${c.highDay}">
+                </td>
+                <td data-th-text="${c.lowDay}">
+                </td>
+              </tr>
+            </table>
+          </div>
 
       </div>
 
@@ -86,30 +86,76 @@
 
             <p>Price: <span data-th-text="${coinPrice}"></span></p>
         </div>
-        
-        <h1>Add to watchlist</h1>
-          <table>
-            <tr>
-              <td class="cryptotable">
-                <h3>Crytocurrencies</h3>
-              </td>
 
-              <td>
-                <form method="POST" action="/addwatchlist">
-                    <label for="item">Watchlist:</label>
-                    <input
-                      type="text"
-                      name="coinwl"
-                      size="20"
-                      placeholder="Ticker Symbol"
-                      required
-                    />
-                    <button type="submit">Add to watchlist</button>
-                </form>
-              </td>
-            </tr>
+        <div>
+          <h1>Add to watchlist</h1>
+            <table>
+              <tr>
+                <td class="cryptotable">
+                  <h3>Crytocurrencies</h3>
+                </td>
+
+                <td>
+                  <form method="POST" action="/addwatchlist">
+                      <label for="item">Watchlist:</label>
+                      <input
+                        type="text"
+                        name="coinwl"
+                        size="20"
+                        placeholder="Ticker Symbol"
+                        required
+                      />
+                      <button type="submit">Add to watchlist</button>
+                  </form>
+                </td>
+              </tr>
           </table>
+        </div>
       </div>
     </div>
+
+          <div>
+          <div data-th-each="nf: ${newsFeedData}">
+            <table style="border: 1px solid;">
+              <tr>
+                <th>Rank</th>
+                <th>ImageUrl</th>
+                <th>Title</th>
+                <th colspan="2">Url</th>
+                <th>Source</th>
+                <th colspan="2">Body</th>
+                <th colspan="1">Tags</th>
+                <th colspan="1">Categories</th>
+              </tr>
+                <td data-th-text="${nf.rank}">
+                </td>
+                <td>
+                  <img style="width:100px"
+                  data-th-src="@{${nf.imageUrl}}"
+                  alt=""
+                  />
+                </td>
+                <td data-th-text="${nf.title}">
+                </td>
+                <td data-th-text="${nf.url}">
+                </td>
+                <td data-th-text="${nf.source}">
+                </td>
+                <td data-th-text="${nf.body}">
+                </td>
+                <td >
+                  <ul>
+                    <li data-th-each="t: ${nf.tags}" data-th-text="${t}"></li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li data-th-each="c: ${nf.categories}" data-th-text="${c}"></li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+      </div>
   </body>
 </html>

@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import vttp2022.ssf.crypto_practice.models.CryptoCurrency;
+import vttp2022.ssf.crypto_practice.models.NewsFeed;
 import vttp2022.ssf.crypto_practice.models.WatchList;
 import vttp2022.ssf.crypto_practice.services.CryptoService;
+import vttp2022.ssf.crypto_practice.services.NewsFeedService;
 
 @Controller
 @RequestMapping(path={"/crypto"})
@@ -24,6 +26,9 @@ public class CryptoController {
 
   @Autowired
   private CryptoService cryptoService;
+
+  @Autowired
+  private NewsFeedService newsFeedService;
 
   @PostMapping
 	public String postWatchList(@RequestBody MultiValueMap<String, String> form
@@ -47,6 +52,10 @@ public class CryptoController {
 			name = "anonymous";
 
 		model.addAttribute("name", name.toUpperCase());
+
+    List<NewsFeed> newsFeedList = getLatestNewsFeed();
+
+    model.addAttribute("newsFeedData", newsFeedList);
 
 		return "crypto";
 	}
@@ -74,5 +83,10 @@ public class CryptoController {
     String price = coin.get().getPrice();
     model.addAttribute("coinPrice", price);
     return "crypto";
+  }
+
+  private List<NewsFeed> getLatestNewsFeed(){
+      List<NewsFeed> newsFeedList = newsFeedService.retrieveLatestNewsFeed();
+      return newsFeedList;
   }
 }

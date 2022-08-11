@@ -47,8 +47,8 @@ public class CryptoService {
 
   public boolean getUser(String user) {
     // System.out.println("getUsers - name: " + name);
-    boolean result = cryptoWatchListRepo.isUserFound(user);
-    // boolean result = false;
+    // boolean result = cryptoWatchListRepo.isUserFound(user);
+    boolean result = false;
     System.out.println("CryptoService: getUsers - result: " + result);
     if (!result)
       return false;

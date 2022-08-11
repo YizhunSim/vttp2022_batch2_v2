@@ -7,6 +7,22 @@ import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
+// Name
+
+// Price
+
+// 1h %
+
+// 24h %
+
+// Market Cap
+
+// Volume(24h)
+
+// Circulating Supply
+
+
+
 // Rank | 	Asset (FullName + Name)	| Price (DISPLAY.USD.PRICE)| 	Market Cap (DISPLAY.USD.MKTCAP) 	| 	Volume (DISPLAY.USD.VOLUMEDAYTO)	| Open Day (DISPLAY.USD.OPENDAY)| High Day (DISPLAY.USD.HIGHDAY)| Low Day (DISPLAY.USD.LOWDAY)
 
 // 1		Bitcoin (BTC)			$ 23,901.0	$ 455.55 B 		$ 456.88 B 					$ 23,179.9 $ 23,910.1  $ 23,162.4
