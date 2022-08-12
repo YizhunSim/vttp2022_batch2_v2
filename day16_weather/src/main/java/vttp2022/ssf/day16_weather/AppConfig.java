@@ -55,5 +55,33 @@ public class AppConfig {
     return redisTemplate;
   }
 
+  @Bean("redislab2")
+  public RedisTemplate<String, String> iniRedisTemplate2(){
+    // Configure the Redis databse
+    RedisStandaloneConfiguration redisConfig = new RedisStandaloneConfiguration();
+    redisConfig.setHostName(redisHost);
+    redisConfig.setPort(redisPort);
+    redisConfig.setDatabase(redisDatabase);
+    redisConfig.setUsername(redisUsername);
+    redisConfig.setPassword(redisPassword);
+
+    // Create an instance of the Jedis Driver
+    JedisClientConfiguration jedisConfig = JedisClientConfiguration.builder().build();
+
+    // Create a factory for jedis connection
+    JedisConnectionFactory jedisFac = new JedisConnectionFactory(redisConfig, jedisConfig);
+    jedisFac.afterPropertiesSet();
+
+    // Create RedisTemplate
+    RedisTemplate<String, String> redisTemplate = new RedisTemplate();
+    redisTemplate.setConnectionFactory(jedisFac);
+
+    redisTemplate.setKeySerializer(new StringRedisSerializer());
+    redisTemplate.setValueSerializer(new StringRedisSerializer());
+
+    System.out.println(">>>> running inRedisTemplate");
+    return redisTemplate;
+  }
+
 }
 

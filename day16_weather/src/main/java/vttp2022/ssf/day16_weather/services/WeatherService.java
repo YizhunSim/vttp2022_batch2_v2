@@ -89,6 +89,7 @@ public class WeatherService {
     List<Weather> list = new LinkedList<>();
 
     // System.out.println("CITIES SIZEEE: " + cities.size());
+
     for (int i = 0; i < cities.size(); i++){
       JsonObject jo = cities.getJsonObject(i);
       list.add(Weather.create(jo));
