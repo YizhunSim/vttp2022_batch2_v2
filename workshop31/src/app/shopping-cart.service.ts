@@ -23,7 +23,7 @@ export class ShoppingCartService {
     const checkItemExistFunction = (obj: { name: string; }) => obj.name === item.name;
 
     if (this.shoppingCart.some(checkItemExistFunction)){
-        let updatedItemIdx = this.shoppingCart.findIndex((obj => obj.name == item.name));
+        const updatedItemIdx = this.shoppingCart.findIndex((obj => obj.name == item.name));
         this.shoppingCart[updatedItemIdx].quantity++;
         console.log(`Updated Item Name: ${this.shoppingCart[updatedItemIdx].name} Item Quantity: ${this.shoppingCart[updatedItemIdx].quantity}`);
     } else{
@@ -46,4 +46,5 @@ export class ShoppingCartService {
 
     this.shoppingCart.splice(idxToBeRemove, 1);
   }
+
 }
