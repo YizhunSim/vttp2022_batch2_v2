@@ -1,0 +1,19 @@
+<div *ngFor="let inventory of inventories">
+  <div class="row thumbnail-bg">
+    <div class="col-4">
+      <img
+        src="/assets/fruits/{{ inventory.imageUrl }}.png"
+        alt="{{ inventory.name }}"
+        class="img-thumbnail"
+      />
+    </div>
+    <div class="col-4">
+      <h4>{{ inventory.name }}</h4>
+    </div>
+    <div class="col-4">
+      <div>
+        <button class="btn btn-light" (click)="onAdd(inventory)">Add on</button>
+      </div>
+    </div>
+  </div>
+</div>
