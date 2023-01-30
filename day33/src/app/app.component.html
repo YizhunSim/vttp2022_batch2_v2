@@ -1,0 +1,7 @@
+<h1>Todo</h1>
+
+<app-todo (onNewToDo)="newToDo($event)" [todo]="data">
+    <button type="button" (click)="processToDo()">Create</button>
+</app-todo>
+
+<button type="button" #clearBtn>clear</button>

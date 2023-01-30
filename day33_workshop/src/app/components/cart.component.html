@@ -1,0 +1,107 @@
+<div class="row">
+  <h1>Cart</h1>
+  <form [formGroup]="cartForm" (ngSubmit)="processForm()">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td>
+          <input
+            type="text"
+            placeholder="Name"
+            size="30"
+            formControlName="name"
+          />
+          <div *ngIf="cartForm.get('name')?.invalid && cartForm.get('name')?.dirty">
+            Please enter your name
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td>
+          <input
+            type="text"
+            placeholder="Address"
+            size="30"
+            formControlName="address"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>
+          <input
+            type="email"
+            placeholder="Email"
+            size="30"
+            formControlName="email"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td>
+          <input
+            type="text"
+            placeholder="Phone"
+            size="30"
+            formControlName="phone"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Express:</td>
+        <td>
+          <input
+            type="checkbox"
+            formControlName="phone"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Delivery:</td>
+        <td>
+            <span class="delivery">
+              <code>0900 - 1100</code>
+              <input type="radio" name="delivery" value="A" formControlName="delivery">
+            </span>
+            <span class="delivery">
+              <code>1100 - 1500</code>
+              <input type="radio" name="delivery" value="B" formControlName="delivery">
+            </span>
+            <span class="delivery">
+              <code>1500 - 1900</code>
+              <input type="radio" name="delivery" value="C" formControlName="delivery">
+            </span>
+          </td>
+      </tr>
+      <tr>
+        <td><button type="submit">Checkout</button></td>
+        <td><button type="button" (click)="addItem()">Add</button></td>
+      </tr>
+    </table>
+
+    <div *ngIf="cartArray.length <= 0">
+        <h2>Your cart is empty</h2>
+    </div>
+
+
+    <table *ngIf="cartArray.controls.length > 0">
+        <thead>
+            <tr>
+                <td><h3>Item</h3></td>
+                <td><h3>Quantity</h3></td>
+                <td><h3>Unit Price</h3></td>
+              </tr>
+        </thead>
+      <tbody formArrayName="cartItems">
+        <tr *ngFor="let item of cartArray.controls; let i = index" [formGroupName]="i">
+          <td><input type="text" size="20" placeholder="Item" size="30" formControlName="item" /></td>
+          <td><input type="number" size="10" min="0" max="100" placeholder="Quantity" size="30" formControlName="quantity" /></td>
+          <td><input type="number" size="10" placeholder="Price" size="30" formControlName="price"/></td>
+          <td><button type="submit" (click)="removeItem(i)">X</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

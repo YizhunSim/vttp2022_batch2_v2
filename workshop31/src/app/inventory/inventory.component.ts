@@ -15,7 +15,7 @@ export class InventoryComponent {
   }
 
   onAdd(item: Item){
-    this.shoppingCartService.shoppingCartUpdate.emit(item);
+    this.shoppingCartService.shoppingCartUpdate.emit(item); //  this.onNewToDo.next(todo); //emit
     // this.inventories = this.shoppingCartService.onAdd(item);
   }
 

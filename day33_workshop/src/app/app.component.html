@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <app-cart (onNewCheckout)="processNewOrder($event)"></app-cart>
+    </div>
+    <div class="col-4">
+      <app-order [order]="order" [name]="custormerName"></app-order>
+    </div>
+  </div>
+</div>
+
