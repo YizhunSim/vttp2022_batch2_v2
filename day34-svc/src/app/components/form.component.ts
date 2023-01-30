@@ -26,9 +26,6 @@ export class FormComponent implements OnInit{
   }
 
   processForm(){
-    const data: User = this.form.value;
-    this.onNewUser.next(data);
-    this.friendService.friends.next(data);
-    this.ngOnInit();
+    
   }
 }

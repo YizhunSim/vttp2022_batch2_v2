@@ -1,0 +1,21 @@
+<h2>Form</h2>
+
+<form [formGroup]="searchForm" (ngSubmit)="processForm()">
+    <table>
+        <tr>
+            <td>
+                <input type="text" name="" id="" formControlName="name">
+                <select name="limit" id="limit" formControlName="limit">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button type="submit">Search</button>
+            </td>
+        </tr>
+        <tr>
+            <td><button type="button">Clear</button></td>
+        </tr>
+    </table>
+</form>

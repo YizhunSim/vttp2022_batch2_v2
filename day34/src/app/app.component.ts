@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   form!: FormGroup;
 
   constructor(
-    private http: HttpClient,
     private fb: FormBuilder,
     private httpBinService: HttpBinService
   ) {}
