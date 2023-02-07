@@ -1,0 +1,25 @@
+<h2>Contact</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="processContact()">]
+    <mat-form-field appearance="fill" class="fill-row">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="fill-row">
+        <mat-label>Tel</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="fill-row">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <div class="justify-right">
+        <button
+        type="submit"
+        mat-raised-button
+        color="primary">
+        <mat-icon>search</mat-icon>
+      </button>
+      </div>
+     
+</form>
