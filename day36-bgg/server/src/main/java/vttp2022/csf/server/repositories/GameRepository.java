@@ -16,8 +16,9 @@ public class GameRepository {
     private MongoTemplate template;
 
     public List<Game> getGames(int limit, int skip) {
+        System.out.println("GameRepository: getGames()");
         Query query = (new Query()).limit(limit).skip(skip);
-        return template.find(query, Document.class, "games")
+        return template.find(query, Document.class, "game")
             .stream()
             .map(v -> { return Game.create(v); })
             .toList();

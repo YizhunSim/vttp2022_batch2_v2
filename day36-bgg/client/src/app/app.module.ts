@@ -10,13 +10,13 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
   { path: '', component: GamesComponent },
   { path: 'games', component: GamesComponent },
-  { path: 'games/:gameId/comments', component: CommentsComponent },
-  { path: '**', redirectTo: '/', pathMatch: 'full' },
+  { path: 'game/:gameId/comments', component: CommentsComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full', },
 ];
 
 @NgModule({
   declarations: [AppComponent, GamesComponent, CommentsComponent],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes, {useHash: true})],
   providers: [BggService],
   bootstrap: [AppComponent],
 })

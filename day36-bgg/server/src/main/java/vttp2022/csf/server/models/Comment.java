@@ -2,6 +2,9 @@ package vttp2022.csf.server.models;
 
 import org.bson.Document;
 
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+
 public class Comment {
     private String commentId;
     private String user;
@@ -33,12 +36,21 @@ public class Comment {
         this.text = text;
     }
 
+    public JsonObject toJson(){
+        return Json.createObjectBuilder()
+        .add("commentid", commentId)
+        .add("user", user)
+        .add("rating", rating)
+        .add("text", text)
+        .build();
+    }
+
     public static Comment create(Document doc){
         Comment comment = new Comment();
         comment.setCommentId(doc.getString("c_id"));
         comment.setUser(doc.getString("user"));
         comment.setRating(doc.getInteger("rating", 0));
-        comment.setText(doc.getString("text"));
+        comment.setText(doc.getString("c_text"));
         return comment;
     }
 }

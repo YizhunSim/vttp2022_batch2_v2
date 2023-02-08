@@ -2,6 +2,9 @@ package vttp2022.csf.server.models;
 
 import org.bson.Document;
 
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+
 public class Game {
     private int gameId;
     private String name;
@@ -19,7 +22,12 @@ public class Game {
         this.name = name;
     }
 
-    
+    public JsonObject toJson(){
+        return Json.createObjectBuilder()
+        .add("gameId", gameId)
+        .add("name", name)
+        .build();
+    }
 
     public static Game create(Document doc){
         Game game = new Game();
@@ -27,5 +35,11 @@ public class Game {
         game.setName(doc.getString("name"));
         return game;
     }
+    
+    @Override
+    public String toString() {
+        return "Game [gameId=" + gameId + ", name=" + name + "]";
+    }
+    
 
 }
