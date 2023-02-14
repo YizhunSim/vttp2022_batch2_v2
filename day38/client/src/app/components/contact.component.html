@@ -1,0 +1,28 @@
+<h2>Contact Form</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="processContact()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" size="30" placeholder="Name" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input type="email" size="30" placeholder="Email" formControlName="email"></td>
+    </tr>
+    <tr>
+      <td><button type="button" (click)="saveContacts()"></button></td>
+      <td><button type="submit">Save</button></td>
+    </tr>
+  </table>
+</form>
+
+<h3><a [routerLink]="['/']">Back</a></h3>
+
+<div>
+  <ul>
+    <li *ngFor="let contact of contacts">
+      <ul>{{ contact.name }} - {{contact.email}}</ul>
+    </li>
+  </ul>
+</div>
